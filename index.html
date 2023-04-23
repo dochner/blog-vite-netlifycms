@@ -19,5 +19,16 @@
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
   <noscript>This website requires JavaScript to function properly. Please enable JavaScript to continue.</noscript>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/'
+          })
+        }
+      })
+    }
+  </script>
 </body>
 </html>
